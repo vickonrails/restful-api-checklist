@@ -10,23 +10,18 @@
 
 ## Checklist Sections
 
-1. **[HTTPS](#https)**
-2. **[Filtering](#filtering)**
-3. **[Sorting](#sorting)**
-4. **[Pagination](#pagination)**
-5. **[Rate Limiting & Throttling](#rate-limiting-and-throttling)**
-6. **[Error Handling](#error-handling)**
-7. **[Authentication & Authorization](#authentication-and-authorization)**
-8. **[Headers](#headers)**
-9. **[Routing & URLs](#routing-and-urls)**
-10. **[Testing](#testing)**
-11. **[Development, Staging & Testing environments](#appropriate-environments)**
-12. **[API Documentation](#documentation)**
-13. **[Consistent API Payload](#api-payload)**
-14. **[API Versioning](#api-versioning)**
-15. **[Appropriate Content Type](#content-type)**
-16. **[Caching](#caching)**
-17. **[Appropriate Status Codes](#status-codes)**
+1. **[Authentication & Authorization](#authentication-and-authorization)**
+2. **[Security](#security)**
+3. **[Performance](#performance)**
+4. **[URL and Routing](#url-and-routing)**
+5. **[API Versioning](#api-versioning)**
+6. **[Testing](#testing)**
+7. **[Continious Integration and Delivery](#ci-and-cd)**
+8. **[Error Handling](#error-handling)**
+9. **[Response Payload/Body](#response)**
+10. **[Rate Limiting & Throttling](#rate-limiting-and-throttling)**
+11. **[API Documentation](#documentation)**
+12. **[Caching](#caching)**
 
 ## Contributing
 
