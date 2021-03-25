@@ -22,11 +22,12 @@
 10. **[Rate Limiting & Throttling](#rate-limiting-and-throttling)**
 11. **[API Documentation](#api-documentation)**
 12. **[Caching](#caching)**
+13. **[References](#references)**
 
 ### Authentication and Authorization
 
 - [ ] **OAuth**: Implement authentication with third-party OAuth services like Facebook, Twitter, etc.
-- [ ] **Auth Endpoints**: Ensure endpoints for basic authentication activies like `sign-in`, `sign-up`, `forgot-password`, `recover-password` are available.
+- [ ] **Auth 2.0 Endpoints**: Ensure endpoints for basic authentication activies like `sign-in`, `sign-up`, `forgot-password`, `recover-password` are available.
 - [ ] **JWT or API Keys**: You would want to implement one of JWT or API Keys auth depending on the use case for the API.
 - [ ] **Roles Based Authorization**: Implement roles to authorize users' operations.
 - [ ] **Encrypt Sensitive Information**: Store encrypted versions of users' passwords and other sensitive information.
@@ -38,6 +39,8 @@
 - [ ] **Hash credentials**: Implement encryption for sensitive information like passwordds and other tokens.
 - [ ] **Hoard Sensitive Information**: Respond to requests with only relevant fields. Don't just spit out every field from the database.
 - [ ] **Don't expose your Id**: If you use integers as Ids, don't always expose them so people can't just guess things. Maybe use GUIDs alongside.
+- [ ] **Implement CORS**: Your API would most likely be used by a single page application (SPA). Ensure the right sites have access to the API.
+- [ ] **Don't store secure information in JWT**: Most times, you'll want to store select information in a JWT. Don't store sensitive information in JWT.
 
 ### Performance
 
@@ -45,15 +48,20 @@
 
 ### URL and Routing
 
-- Coming soon
+- [ ] **Nouns not Verbs**: Name all endpoints as nouns and not verbs. The method of requests already act as verbs.
+- [ ] **Plural Names**: All resources that are collections are in plural form. Single items are in singular form.
+- [ ] **Resources are nested**: Relationships between entities are represented in the url. Take for example, [https://blogs.com/articles/2024/comments/2](https://blogs.com/articles/2024/comments/2), comments revolve around articles. So it makes sense to be nested url-wise.
+- [ ] **Addressible through a URI**: All resources on the server are addressible via a URI and can be exposed by a single request.
+- [ ] **Request Idempotency**: A `DELETE` request is idempotent in that hitting the same request multiple times does not do anything (Because the resource has already been removed. Just returns an error). `GET`, `PUT` `PATCH` & `DELETE` must be idempotent. Subsequent invocations of the same request will have no adverse consequences.
 
 ### API Versioning
 
-- Coming soon
+- [ ] **Version APIs**: Assign major versions (v1, v2, v3) to APIs for backward compactibility and easy debugging. You might not need a version if the default API is the most up-to-date one.
 
 ### Testing
 
-- Coming soon
+- [ ] **Use automated testing**: You can't manually test every endpoint before deploying to production. You can run automated tests to ensure compliance after making changes to the code.
+- [ ] **Load test**: There's only one way to know if your API can perform well in rugged conditions - test it. Certain metrics are requests per second, requests per minute, etc.
 
 ### CI & CD
 
@@ -61,11 +69,22 @@
 
 ### Error Handling
 
-- Coming soon
+- [ ] **Extend the error object**: You might need to extend the error object of your language to provide more details about your error.
+- [ ] **Readable error message**: Alongside your error code, should be a human-readable explanation of your error. Developers can show this to their users too.
 
 ### Response Payload
 
 - [ ] **Consistent Response Payload**: Keep the response structure constant so people can know where to find things let error messages and payload data.
+- [ ] **Standard HTTP Methods**: Always respond with standard HTTP methods.
+
+  | HTTP Method | Meaning                                       |
+  | ----------- | --------------------------------------------- |
+  | GET         | Fetch or read a resource                      |
+  | POST        | Create a new resource                         |
+  | PUT         | Edit a resource or create new if not existing |
+  | PATCH       | Incrementally edit a resource                 |
+  | DELETE      | Remove a resource or item                     |
+
 - [ ] **Appropriate Status Codes**: Respond with appropriate status codes.
 
   | Status Code | Description                                                                                                                                   |
@@ -87,13 +106,17 @@
   | 429         | The rate limit is exceeded.                                                                                                                   |
   | 500         | Internal server error                                                                                                                         |
 
+- [ ] **Pagination**: Sending very, unpaginated volumes of data can heavily slow down the server, network or client. Ensure all collections of resources implement pagination by default (Even without any query parameters).
+- [ ] **Self discovery**: Respond to an API call with links to related resources. This is the best form of your API documentation and makes discovery of other endpoints faster.
+- [ ] **Expose appropriate headers**: Headers can be useful for storing additional information. Store things like pagination info, security and other browser information here.
+
 ### Rate Limiting & Trottling
 
-- Coming soon
+- [ ] **Implement rate limiting**: Avoid DOS attacks and protect your server. Denial of Service (DOS) attacks aim to make your server unavailable by sending thousands of requests in very little time.
 
 ### API Documentation
 
-- Coming soon
+- [ ] **API documentation**: Documentation should be accessible, example-based and easy to use. An API is as good as the documentation.
 
 ### Caching
 
